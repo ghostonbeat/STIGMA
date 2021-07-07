@@ -1,0 +1,51 @@
+[0,0][1,0][2,0][3,0]
+[0,1][1,1][2,1][3,1]
+[0,2][1,2][2,2][3,2]
+[0,3][1,3][2,3][3,3]
+
+[2][0][0][0]
+[1][0][1][0]
+[1][0][1][1]
+[0][0][0][3]
+
+[S][ ][ ][ ]
+[#][ ][#][ ]
+[#][ ][#][#]
+[ ][ ][ ][G]
+
+[1][1][0][0]
+[0][1][0][0]
+[0][1][0][0]
+[0][1][1][1]
+
+[0,0] ----> [1,0] ----> [2,0] ----> [3,0] ----> [3,1] ----> [3,2] ----> [3,3] (Not Solution)
+		  |
+		  |
+		  ----> [1,1] ----> [1,2] ----> [1,3] ----> [0,3] (Not Solution)
+						      |
+						      |
+						      ----> [2,3] ----> [3,3] (Solution)
+
+Tools :
+	- 0 = jalan
+	- 1 = tembok
+	- 2 = mulai
+	- 3 = selesai
+	- U = atas
+	- D = bawah
+	- L = kanan
+	- R = kiri
+
+Input = maze
+Output = maze
+
+Algoritma Backtracking :
+	- Titik mulai random
+	- Menganalisis tiap arah
+	- Jika memenuhi syarat petak (
+		- berada di dalam area NxN
+		- memiliki petak yang bisa dilalui
+	   )
+	   Maka, petak ditandai
+	- Menelusuri setiap sudut. Jika menemukan jalan buntu, maka kembali lagi ke posisi sebelumnya dan menghapus tanda di petak
+	- Penelusuran selesai jika sudah menemukan titik selesai atau tidak sama sekali di jalur manapun
